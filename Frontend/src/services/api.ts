@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Book, CreateBookDto, UpdateBookDto, BookQueryParameters, PaginatedResponse } from '../types/book';
 
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 // Skapa axios-instans med standardkonfiguration
 const apiClient = axios.create({

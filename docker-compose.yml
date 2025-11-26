@@ -1,0 +1,21 @@
+services:
+  frontend:
+    image: chrolemist/react-workshop-frontend:latest
+    build: ./Frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+  backend:
+    image: chrolemist/react-workshop-backend:latest
+    build: ./PythonApi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./PythonApi:/app
